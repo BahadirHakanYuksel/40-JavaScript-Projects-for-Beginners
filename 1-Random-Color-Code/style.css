@@ -64,3 +64,30 @@ body{
 #change-color:hover{
     background-color: whitesmoke;
 }
+
+@media(max-width : 582px){
+    .color_code{
+        min-width: 98%;
+        font-size: 2.5rem;
+        justify-content: center;
+    }
+    #copy-btn{
+        height: 100%;
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width : 411px){
+    .color_code{
+        font-size: 2rem;
+    }
+    #change-color{
+        font-size: 1.6rem;
+    }
+}
+@media(max-width : 351px){
+    .color_code{
+        font-size: 1.4rem;
+        padding: 0.4rem 0;
+    }
+}
