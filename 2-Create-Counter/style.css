@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom,rgb(70, 70, 238),rgb(107, 197, 209));
+}
+.container{
+    box-shadow: 0 0 5px 2px rgb(28, 16, 131);
+    min-width: 360px;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+}
+header{
+    font-size: 3.4rem;
+    color: rgb(70, 70, 238);
+}
+#number{
+    font-size: 4rem;
+}
+#btns{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+#btns > button{
+    height: 30px;
+    border: none;
+    transition: 0.2s;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#dec{
+    background-color: rgb(70, 70, 238);
+}
+#dec:hover{
+    background-color: rgb(80, 80, 248);
+}
+#reset{
+    background-color: rgb(212, 6, 6);
+}
+#reset:hover{
+    background-color: rgb(222, 16, 16);
+}
+#inc{
+    background-color: rgb(43, 6, 177);
+}
+#inc:hover{
+    background-color: rgb(53, 16, 187);
+}
