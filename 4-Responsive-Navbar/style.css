@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+    font-size: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    padding: 0 5%;
+    box-shadow: 0 0.3rem 0.3rem 0 rgba(218, 218, 218, 0.226);
+    background-color: #222;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;        
+}
+
+#logo{
+    color: orangered;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+#menu{
+    height: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.nav_title{
+    font-size: 1.4rem;
+    color: white;
+    margin-right: 2rem;
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 2px whitesmoke;
+    height: 100%;
+    border-radius: 0.3rem;
+    transition: 0.2s;
+}
+.nav_title:hover{
+    box-shadow: 2px 2px 2px rgb(2, 218, 128);
+    color: rgb(2, 218, 128);
+}
+
+#responsive_btn{
+    width: 2.8rem;
+    height: 2.8rem;
+    cursor: pointer;
+    background-color: #5785;
+    color: #ffdfff;
+    border: 0.1rem solid #777;
+    transition: 0.2s;
+    display: none;
+}
+
+#responsive_btn:hover{
+    background-color: #5788;
+}
+
+#content{
+    margin-top: 5.2rem;
+    min-height: 100vh;
+}
+
+.page{
+    height: 62.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.page > header{
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0.2rem 0.2rem 0.2rem black;
+    margin-bottom: 4rem;
+}
+.page > p{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 900;
+    border-top: 0.1rem solid rgb(10, 10, 10);
+    border-bottom: 0.1rem solid rgb(10, 10, 10);
+    border-radius: 2rem;
+    padding: 6rem 2rem;
+}
+#page1{
+    background-color: rgb(27, 27, 37)
+}
+#page2{
+    background-color: rgb(35, 38, 49);
+}
+#page3{
+    background-color: rgb(38, 46, 31);
+}
+
+#ftr{
+    background: linear-gradient(45deg, rgb(0, 0, 0),#121);
+    color: white;
+    width: 100%;
+    min-height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
+}
+
+/* we need the media label to making responsive menu */
+
+@media(max-width : 530px){
+    #menu{
+        flex-direction: column;
+        position: absolute;
+        border: 2px solid black;
+        width: 100%;
+        /* height: calc(100vh - 5rem); */
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s;
+        top: 5rem;
+        left: 0;
+        background-color: #333;
+        padding: 0.3rem 0;
+    }
+    .nav_title{
+        width: 100%;
+        margin-right: 0;
+        box-shadow: 0 0 0 transparent;
+        border-bottom: 0.1rem solid grey;
+    }
+    #responsive_btn{
+        display: block;
+    }
+    .page{
+        height: auto;
+    }
+    .page > header {
+        font-size: 2rem;
+    }
+    .page > p {
+        font-size: 1.2rem;
+    }   
+
+}
