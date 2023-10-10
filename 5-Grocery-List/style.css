@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+:root{
+    --main : rgb(0, 102, 255);
+}
+
+#list{
+    width: 45rem;
+    height: 31rem;
+    padding: 2rem 0;
+    box-shadow: 0 0 0.4rem 0.2rem #3332;
+    overflow: hidden;
+    border-radius: 0.3rem;
+}
+
+#main_title{
+    color: var(--main);
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+}
+
+#find_section{
+    width: 100%;
+    height: 3.5rem;
+    display: grid;
+    grid-template-columns: 60% 15% auto;
+    gap: 0 1rem;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+#input{
+    border: none;
+    outline: 0;
+    padding: 0.2rem 0.6rem;
+    border-bottom: 0.2rem solid rgb(73, 73, 73);
+    font-size: 1.4rem;
+    transition: 0.2s;
+}
+
+#input:focus{
+    border-bottom: 0.2rem solid var(--main);
+}
+
+#input:focus::placeholder{
+    color: var(--main);
+}
+
+#add_icon{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: var(--main);
+    font-size: 1.5rem;
+    border: 0.1rem solid var(--main);
+    border-radius: 0.2rem;
+    transition: 0.2s;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+#add_icon:hover{
+    background-color: var(--main);
+    color: white;
+}
+
+#all_del_btn{
+    border: 0.1rem solid rgb(180, 14, 14);
+    color: rgb(180, 14, 14);
+    background-color: white;
+    border-radius: 0.2rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#all_del_btn:hover{
+    background-color: rgb(180, 14, 14);
+    color: white;
+}
+
+#products{
+    width: 100%;
+    height: 19rem;
+    padding-left: 2rem;
+    padding-right: 1.4rem;
+    position: relative;
+}
+
+#products::-webkit-scrollbar{
+    width: 0.6rem;
+}
+#products::-webkit-scrollbar-thumb{
+    background-color: var(--main);
+    border-radius: 2rem;
+}
+
+.product{
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.082);
+    height: 4.2rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.6rem;
+
+    display: grid;
+    grid-template-columns: 34rem auto;
+    align-items: center;
+}
+
+.product:last-child{
+    margin-bottom: 0;
+}
+
+.p_name{
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.p_icons{
+    height: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 50% auto;
+}
+
+.p_icons > i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.edit{
+    color: #444;
+}
+
+.edit:hover{
+    color: rgb(14, 117, 45);
+}
+
+.delete{
+    color: #777;
+}
+
+.delete:hover{
+    color: rgb(206, 33, 33);
+}
+
+#message{
+    color: rgba(0, 102, 255, 0.6);
+    border-radius: 1rem;
+    position: absolute;
+    left: 2rem;
+    bottom: 1rem;
+    height: 18rem;
+    width: 41rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+#message > i{
+    margin-left: 1rem;
+}
