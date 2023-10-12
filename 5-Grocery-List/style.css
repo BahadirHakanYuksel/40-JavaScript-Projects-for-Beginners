@@ -103,6 +103,7 @@ body{
     padding-left: 2rem;
     padding-right: 1.4rem;
     position: relative;
+    overflow-x: hidden;
 }
 
 #products::-webkit-scrollbar{
@@ -114,7 +115,7 @@ body{
 }
 
 .product{
-    width: 100%;
+    width: 100% !important;
     background-color: rgba(128, 128, 128, 0.082);
     height: 4.2rem;
     margin-bottom: 0.5rem;
@@ -174,7 +175,8 @@ body{
     border-radius: 1rem;
     position: absolute;
     left: 2rem;
-    bottom: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
     height: 18rem;
     width: 41rem;
     display: flex;
@@ -229,4 +231,18 @@ body{
 
 .edit_save_btn_active:hover{
     background:linear-gradient(45deg,var(--main), rgb(17, 87, 192));
+}
+
+@media(max-width : 449px){
+    #list{
+        width: 100%;
+        height: 100%;
+    }
+    #products{
+        min-height: 19rem;
+        height: 84%;
+    }
+    .product{
+        grid-template-columns: 80% auto;
+    }
 }
