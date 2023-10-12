@@ -101,6 +101,23 @@ function productActions(e){
         // remove the UI
         e.target.parentElement.parentElement.remove();
         removeTheStorage(e.target.parentElement.parentElement.children[0].textContent);
+    }if(e.target.className === 'fa-solid fa-pen-to-square edit'){
+        // edit action
+        const edit_sec = document.createElement('section');
+        edit_sec.className = 'edit_sec';
+        const edit_input = document.createElement('input');
+        edit_input.className = 'edit_input';
+        edit_input.placeholder = 'Edit';
+        const edit_save_btn = document.createElement('button');
+        edit_save_btn.className = 'edit_save_btn';
+        edit_save_btn.textContent = 'Close';
+        edit_sec.appendChild(edit_input);
+        edit_sec.appendChild(edit_save_btn);
+        e.target.parentElement.parentElement.children[0].style.display = 'none';
+        e.target.parentElement.parentElement.insertBefore(edit_sec,e.target.parentElement.parentElement.children[0]);
+
+        document.querySelector('.edit_save_btn').addEventListener('click',edit_sec_actions);
+        document.querySelector('.edit_input').addEventListener('keyup',EI_Action);
     }
 }
 
@@ -126,4 +143,40 @@ function scrollControlForProducts(){
     check_product_list();
     product_list.length > 4 ? products.style.overflowY = 'scroll' : products.style.overflowY = 'hidden';
     product_list.length > 0 ? message.style.opacity = 0 : message.style.opacity = 1;
+}
+
+function edit_sec_actions(e){
+    if(e.target.className === 'edit_save_btn') closeTheEditSec(e.target);
+    if(e.target.className === 'edit_save_btn edit_save_btn_active'){
+        const newProduct = e.target.parentElement.children[0].value.trim();
+        check_product_list();
+        let ind;
+        product_list.forEach((product,index) => {
+            if(product === e.target.parentElement.parentElement.children[1].textContent){
+                product_list.splice(index,1);
+                ind = index;
+            }
+        })
+        product_list.push(newProduct);
+        product_list = localStorage.setItem("Product_List",JSON.stringify(product_list));
+        e.target.parentElement.parentElement.children[1].textContent = newProduct;
+
+        closeTheEditSec(e.target);
+    }
+}
+
+function closeTheEditSec(btn){
+    btn.parentElement.parentElement.children[1].style.display = 'block';
+    btn.parentElement.remove();
+}
+
+function EI_Action(e){
+    if(e.target.value.trim().length > 0){
+        e.target.parentElement.children[1].classList.add('edit_save_btn_active');
+        e.target.parentElement.children[1].textContent = 'Save';
+    }
+    else{ 
+        e.target.parentElement.children[1].classList.remove('edit_save_btn_active');
+        e.target.parentElement.children[1].textContent = 'Close';
+    }    
 }
