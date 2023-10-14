@@ -187,8 +187,8 @@ body{
     align-items: center;
     justify-content: center;
     padding: 0.6rem;
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
     pointer-events: none;
@@ -207,6 +207,7 @@ body{
 
 #try_play > i{
     font-size: 2.4rem;
+    margin-bottom: 0.4rem;
 }
 
 #selection2{
@@ -397,6 +398,7 @@ body{
     #try_play > i{
         font-size: 1.5rem;
         margin-right: 0.3rem;
+        margin-bottom: 0;
     }
 }
 
