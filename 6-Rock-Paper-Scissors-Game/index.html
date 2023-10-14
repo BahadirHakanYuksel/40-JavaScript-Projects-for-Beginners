@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6- Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div id="game_board">
+        <header id="main_title">Rock Paper Scissors Game</header>
+
+        <div id="screen">
+            <div>
+                <span class="names n1">You</span>
+                <i class="fa-regular fa-hand-back-fist" id="result_of_user"></i>
+                <span class="score" id="user_score">0</span>
+            </div>
+            <span class="vs">
+                V.S
+                <div id="numberOfGame">10</div>
+            </span>
+            <div>
+            <span class="names n2">PC</span>
+                <i class="fa-regular fa-hand" id="result_of_computer"></i>
+                <span class="score" id="computer_score">0</span>
+            </div>
+        </div>
+
+        <div id="selection">
+            <i id="rock" class="fa-regular fa-hand-back-fist"></i>
+            <i id="papper" class="fa-regular fa-hand"></i>
+            <i id="scissor" class="fa-regular fa-hand-scissors"></i>
+        </div>
+
+        <div id="selection2" class="selection2_pause">
+            <i id="Rock" class="fa-regular fa-hand-back-fist"></i>
+            <i id="Papper" class="fa-regular fa-hand"></i>
+            <i id="Scissor" class="fa-regular fa-hand-scissors"></i>
+        </div>
+        
+        <div id="try_play">
+            <i class="fa-solid fa-play"></i>
+            <span>Try Play</span>
+        </div>
+
+        <div id="select_repeat_number_of_the_game"><span>Select Number Of Game</span></div>
+
+        <div id="selectionTheNumberOfGame" class="active_screen">
+            <header>Select The Number Of Game</header>
+            <div id="number_btns">
+                <button class="number_btn"><span>3</span> tour</button>
+                <button class="number_btn"><span>5</span> tour</button>
+                <button class="number_btn"><span>10</span> tour</button>
+                <button class="number_btn"><span>20</span> tour</button>
+                <button class="number_btn"><span>30</span> tour</button>
+                <button class="number_btn"><span>50</span> tour</button>
+                <button class="number_btn"><span>100</span> tour</button>
+                <button class="number_btn"><span>200</span> tour</button>
+                <button class="number_btn"><span>500</span> tour</button>
+                <button class="number_btn"><span>1000</span> tour</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rpsg.js"></script>
+</body>
+</html>
