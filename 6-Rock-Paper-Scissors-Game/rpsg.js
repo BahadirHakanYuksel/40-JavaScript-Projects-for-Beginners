@@ -6,6 +6,10 @@ const numberOfGamePanel = document.getElementById('numberOfGame');
 const user_score_panel = document.getElementById('user_score');
 const computer_score_panel = document.getElementById('computer_score');
 const select_repeat_number_of_the_game = document.getElementById('select_repeat_number_of_the_game');
+
+const selection1_icons = document.querySelectorAll('#selection > i');
+const selection2_icons = document.querySelectorAll('#selection2 > i');
+
 const n1 = document.querySelector('.n1');
 const n2 = document.querySelector('.n2');
 
@@ -19,8 +23,13 @@ let numberOfGame_2 = 0;
 events();
 
 function events(){
-    selection_div.addEventListener('click',selections_click_actions);
-    selection2.addEventListener('click',selections_click_actions);
+    selection1_icons.forEach(icon => {
+        icon.addEventListener('click',selections_click_actions);
+    })
+    selection2_icons.forEach(icon => {
+        icon.addEventListener('click',selections_click_actions);
+    })
+
     try_play.addEventListener('click',removeScreen);
     select_repeat_number_of_the_game.addEventListener('click',removeScreen2);
     number_btns.forEach(numberBtn => {
@@ -152,9 +161,6 @@ function resultOfGame(){
             // computer_score--;
         }
     }
-    else{
-        console.log("===");
-    }
 
     user_score_panel.textContent = user_score;
     computer_score_panel.textContent = computer_score;
@@ -162,7 +168,21 @@ function resultOfGame(){
     if(numberOfGame === 0){
         if(user_score > computer_score) n1.style.backgroundColor = 'rgb(10, 153, 58)'
         if(computer_score > user_score) n2.style.backgroundColor = 'rgb(10, 153, 58)'
+        else{
+            n1.style.backgroundColor = 'rgb(0, 89, 255)';
+            n2.style.backgroundColor = 'rgb(0, 89, 255)'
+        }
     }
+
+
+    if(numberOfGame + user_score < computer_score || numberOfGame + computer_score < user_score){
+        if(user_score > computer_score) n1.style.backgroundColor = 'rgb(10, 153, 58)'
+        if(computer_score > user_score) n2.style.backgroundColor = 'rgb(10, 153, 58)'
+        numberOfGame = 0;
+        try_play.classList.add('try_play_active');
+        selection2.classList.add('selection2_pause');
+    }
+    
 
     ScoreAnimation(user_score,computer_score,beforeScoreOfUser,beforeScoreOfComputer);
 }
@@ -185,9 +205,10 @@ function ComputerSelection(){
 }
 
 function ScoreAnimation(userNow,computerNow,userBef,computerBef){
+    const computer_score_panel = document.getElementById('computer_score');
+    const user_score_panel = document.getElementById('user_score');
+    const result_of_computer = document.getElementById('result_of_computer');
     if(userNow > userBef){
-        const user_score_panel = document.getElementById('user_score');
-        const result_of_user = document.getElementById('result_of_user');
         result_of_user.style.color = 'rgb(10, 153, 58)';
         result_of_user.style.border = '0.2rem solid rgb(10, 153, 58)';
         user_score_panel.style.backgroundColor = 'rgb(10, 153, 58)';
@@ -198,8 +219,6 @@ function ScoreAnimation(userNow,computerNow,userBef,computerBef){
         },600);
     }
     if(computerNow > computerBef){
-        const computer_score_panel = document.getElementById('computer_score');
-        const result_of_computer = document.getElementById('result_of_computer');
         result_of_computer.style.color = 'rgb(10, 153, 58)';
         result_of_computer.style.border = '0.2rem solid rgb(10, 153, 58)';
         computer_score_panel.style.backgroundColor = 'rgb(10, 153, 58)';
@@ -209,5 +228,23 @@ function ScoreAnimation(userNow,computerNow,userBef,computerBef){
             computer_score_panel.style.backgroundColor = ''
         },600);
 
+    }else{
+        result_of_user.style.color = 'rgb(0, 89, 255)';
+        result_of_user.style.border = '0.2rem solid rgb(0, 89, 255)';
+        user_score_panel.style.backgroundColor = 'rgb(0, 89, 255)';
+
+        result_of_computer.style.color = 'rgb(0, 89, 255)';
+        result_of_computer.style.border = '0.2rem solid rgb(0, 89, 255)';
+        computer_score_panel.style.backgroundColor = 'rgb(0, 89, 255)';
+
+        setTimeout(() => {
+            result_of_user.style.color = '';
+            result_of_user.style.border = '';
+            user_score_panel.style.backgroundColor = ''
+            
+            result_of_computer.style.color = '';
+            result_of_computer.style.border = '';
+            computer_score_panel.style.backgroundColor = ''
+        },600);
     }
 }
