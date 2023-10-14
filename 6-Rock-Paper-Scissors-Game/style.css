@@ -20,14 +20,16 @@ body{
 #game_board{
     width: 85%;
     height: 85%;
-    box-shadow: 0 0 0.3rem 0.2rem #3338;
+    /* box-shadow: 0 0 0.3rem 0.2rem #3338; */
+    box-shadow: 0 0 0.3rem 0.2rem #2798;
     padding: 2rem;
     position: relative;
     overflow: hidden;
+    border-radius: 1rem;
 }
 
 #main_title{
-    font-size: 4rem;
+    font-size: 4.4rem;
     background: linear-gradient(to left,rgb(0, 0, 165),rgb(32, 189, 241));
     background-clip: text;
     -webkit-background-clip: text;
@@ -264,32 +266,36 @@ body{
 
 #selectionTheNumberOfGame{
     position: absolute;
-    background:linear-gradient(45deg,rgb(0, 89, 255),rgb(16, 11, 58));
-    color: white;
+    /* background:linear-gradient(45deg,rgb(0, 89, 255),rgb(16, 11, 58)); */
     width: 100%;
     left: 0;
     bottom: 0;
     height: 80%;
     display: grid;
     grid-template-rows: 20% 80%;
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
 #selectionTheNumberOfGame > header{
-    font-size: 2.4rem;
+    font-size: 2.8rem;
+    display: flex;
     align-items: center;
+    padding: 0 2rem;
 }
 
 #number_btns{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 2rem;
+    background-color: white;
+    padding: 0 2rem;    
 }
 
 .number_btn{
     font-size: 1.8rem;
     font-weight: 500;
-    background-color: white;
+    background:linear-gradient(45deg,rgb(0, 89, 255),rgb(16, 11, 58));
+    color: white;
     border: 0;
     border-radius: 1rem;
     outline: 0;
@@ -300,8 +306,8 @@ body{
 
 .number_btn:hover{
     box-shadow: 0 0 0.3rem 0.1rem black;
-    background-color: rgb(25, 27, 29);
     color: white;
+    transform: scale(1.025,1.025);
 }
 
 #select_repeat_number_of_the_game{
@@ -324,4 +330,113 @@ body{
 #select_repeat_number_of_the_game:hover{
     background-color: rgb(19, 19, 53);
     color: white;
+}
+
+@media(max-width : 768px){
+
+    #game_board{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    #main_title{
+        font-size: 3.5rem;
+    }
+    #selectionTheNumberOfGame{
+        height: 90%;
+    }
+    #selectionTheNumberOfGame > header{
+        font-size: 2.4rem;
+    }
+    #number_btns{
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    #selection,
+    #screen{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        height: 50%;
+        justify-content: center;
+        padding: 0 4rem;
+    }
+
+    #select_repeat_number_of_the_game{
+        width: 10rem;
+        height: 10rem;
+        left: 1rem;
+        font-size: 1.4rem;
+        font-weight: 800;
+    }
+}
+
+@media(max-width : 660px){
+    #select_repeat_number_of_the_game{
+        border-radius: 0;
+        height: 4rem;
+        width: 20rem;
+        top: 10rem;
+        left: 0;
+        font-weight: 500;
+        padding-left: 0.3rem;
+    }
+    #try_play{
+        height: 4rem;
+        width: 20rem;
+        left: 0;
+        padding-left: 0.3rem;
+        font-weight: 500;
+        top: 13rem;
+        border-radius: 0;
+        font-size: 1.4rem;
+        flex-direction: row;
+    }
+    #try_play > i{
+        font-size: 1.5rem;
+        margin-right: 0.3rem;
+    }
+}
+
+@media(max-width : 522px){
+
+    #main_title{
+        font-size: 3rem;
+    }
+    #selectionTheNumberOfGame{
+        height: 92%;
+    }
+    #selectionTheNumberOfGame > header{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    #number_btns{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width : 448px){
+    #main_title{
+        font-size: 2.5rem;
+    }
+    #selectionTheNumberOfGame{
+        height: 95%;
+    }
+    #selectionTheNumberOfGame > header{
+        font-size: 1.8rem;
+    }
+    #number_btns{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width : 375px){
+    #main_title{
+        font-size: 2.2rem;
+    }
+    #selectionTheNumberOfGame > header{
+        font-size: 1.6rem;
+    }
 }
