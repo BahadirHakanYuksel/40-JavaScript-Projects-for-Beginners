@@ -1,0 +1,15 @@
+[
+    {
+        "name" : "Computer",
+        "cost" : 5000,
+        "src" : "imgs/1.jpg",
+        "index" : 0
+    },
+    {
+        "name" : "Cmp 2",
+        "cost" : 10000,
+        "src" : "imgs/2.png",
+        "index" : 1
+    }
+    
+]

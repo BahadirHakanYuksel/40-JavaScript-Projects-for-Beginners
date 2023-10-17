@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <nav id="nav">
+        <span id="logo">Online-Shopping</span>
+        <div id="menu">
+            <span class="nav_title">Home</span>
+            <span class="nav_title">Page 1</span>
+            <span class="nav_title">Page2</span>
+            <div class="nav_title" id="Shopping-Cart-Btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="numbers_of_products">0</span>
+                <span>Ürün</span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="home">
+        <div id="promo">
+            <span>Welcome to Online Shopping</span>
+        </div>
+
+        <header id="pr_title">Products</header>
+        <div id="products">
+            <!-- <div class="product">
+                <header class="p_title">Computer 1</header>
+                <div class="p_img_div">
+                    <img class="p_img" src="imgs/1.jpg" alt="">
+                </div>
+                <div class="p_infos">
+                    <span class="cost">5000 TL</span>
+                    <button class="add_the_shopping_cart">Add Box</button>
+                </div>
+            </div> -->
+        </div>
+    </main>
+
+    <div id="shopping_cart_menu">
+        <i class="fa-solid fa-xmark" id="closeTheShoppingCartBtn"></i>
+        <header>Added Products</header>
+        <div id="scm_products">
+            <div class="scm_product">
+                <div class="scmp_left">
+                    <div class="scmp_img_div">
+                        <img id="img" src="imgs/1.jpg" alt="">
+                    </div>
+                    <div class="scmp_infos">
+                        <span class="scmp_name">Computer 1</span>
+                        <div class="scmp_cost_div">
+                            <span class="scmp_cost">5000</span>
+                            <span>TL</span>
+                        </div>
+                        <button class="remove_scmp_btn">Remove</button>
+                    </div>
+                </div>
+                <div class="scmp_right">
+                    <div class="control_of_scmp_numbers">
+                        <i class="fa-solid fa-minus minus"></i>
+                        <span class="numbersOfThisProduct">0</span>
+                        <i class="fa-solid fa-plus sum"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="shopping-card.js"></script>
+</body>
+</html>
