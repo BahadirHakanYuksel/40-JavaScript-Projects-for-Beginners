@@ -112,7 +112,7 @@ body{
 
 #products{
     display: grid;
-    grid-template-columns: repeat(4,20rem);
+    grid-template-columns: repeat(5,20rem);
     gap: 1.4rem 2.4rem;
     justify-content: center;
 }
@@ -205,7 +205,7 @@ body{
 }
 
 .added_add_the_shopping_cart:hover{
-    background-color: rgb(235, 83, 27);
+    background-color: rgb(255, 51, 0);
 }
 
 #shopping_cart_menu{
@@ -282,6 +282,7 @@ body{
 
 .scmp_cost{
     color: var(--main);
+    margin-right: 0.3rem;
 }
 
 .remove_scmp_btn{
