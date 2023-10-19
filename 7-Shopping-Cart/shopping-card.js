@@ -4,9 +4,12 @@ const closeTheShoppingCartBtn = document.getElementById('closeTheShoppingCartBtn
 const products = document.getElementById('products');
 const numbers_of_products = document.getElementById('numbers_of_products');
 const scm_products = document.getElementById('scm_products');
+const totalCost = document.getElementById('totalCost');
+const total = document.getElementById('total');
 
 let carts = [];
 let counter = 0;
+let sumOf_totalCost = 0;
 
 runEvenets();
 
@@ -19,16 +22,41 @@ function runEvenets(){
 
 function openTheShoppingCartMenu(){
     shopping_cart_menu.classList.add('scm_active');
-
     check_carts();
     carts.forEach(cart => {
-        addTheUI_scm(cart.name,cart.cost,cart.src);
+        addTheUI_scm(cart.inno,cart.name,cart.cost,cart.src);
     })
+
+    sumOf_totalCost = 0;
+    const scm_product = document.querySelectorAll('.scm_product');
+    if(scm_product.length > 0){
+        total.style.display = '';
+        scm_product.forEach(pr => {
+            sumOf_totalCost += Number(pr.children[1].children[1].children[1].children[0].textContent) * Number(pr.children[2].children[0].children[1].textContent);
+            totalCost.textContent = sumOf_totalCost;
+        });
+    }else total.style.display = 'none';
 }
 
 function closeTheShoppingCartMenu(){
     shopping_cart_menu.classList.remove('scm_active');
     const scm_product = document.querySelectorAll('.scm_product');
+
+    check_carts();
+
+    scm_product.forEach(pr => {
+        const indexNo = Number(pr.children[0].textContent);
+
+        carts.forEach(cart => {
+            if(cart.inno === indexNo){
+                cart.quantity = Number(pr.children[2].children[0].children[1].textContent);
+            }
+        })
+
+    })
+
+    carts = localStorage.setItem("Carts",JSON.stringify(carts));
+
     scm_product.forEach(scmp => scmp.remove());
 }
 
@@ -44,7 +72,6 @@ function getTheProductsToHome(){
     .then(res => res.json())
     .then(data => {
         data.forEach(product => {
-            console.log(product);
             addTheUIHome(product.index,product.name,product.cost,product.src);
         });
     })
@@ -124,12 +151,13 @@ function clickActions(e){
         const cost = addBtn.parentElement.children[0].children[0].textContent;
         const name = addBtn.parentElement.parentElement.children[1].textContent;
         const src = addBtn.parentElement.parentElement.children[2].children[0].src;
-        console.log(_inno);
+
         var newCart = new createCart()
         newCart.name = name;
         newCart.cost = cost;
         newCart.src = src;
         newCart.inno = _inno;
+        newCart.quantity = 1;
 
         check_carts();
         carts.push(newCart);
@@ -156,16 +184,67 @@ function clickActions(e){
         if(counter != 0) counter--;
         animationTheCartOfShopping_Add(counter);
     }
+    else if(e.target.className === 'fa-solid fa-minus minus' || e.target.className === 'fa-solid fa-plus sum'){
+        let scm_counter = Number(e.target.parentElement.children[1].textContent);
+        if(e.target.className === 'fa-solid fa-minus minus'){
+            // minusBtn = e.target;
+            if(scm_counter > 1){
+                scm_counter--;
+                sumOf_totalCost -= Number(e.target.parentElement.parentElement.parentElement.children[1].children[1].children[1].children[0].textContent);
+            }
+            e.target.parentElement.children[1].textContent = scm_counter;
+            
+            totalCost.textContent = sumOf_totalCost;
+        }else if(e.target.className === 'fa-solid fa-plus sum'){
+            if(scm_counter < 10){
+                scm_counter++;
+                sumOf_totalCost += Number(e.target.parentElement.parentElement.parentElement.children[1].children[1].children[1].children[0].textContent);
+            }
+            totalCost.textContent = sumOf_totalCost;
+            e.target.parentElement.children[1].textContent = scm_counter;
+        }
+    }
+    else if(e.target.className === 'remove_scmp_btn'){
+        
+        const multi = Number(e.target.parentElement.children[1].children[0].textContent) * Number(e.target.parentElement.parentElement.parentElement.children[2].children[0].children[1].textContent);
+        totalCost.textContent = Number(totalCost.textContent)-multi;
+
+        if(counter != 0) counter --;
+        numbers_of_products.textContent = counter;
+
+        const index_no = Number(e.target.parentElement.parentElement.parentElement.children[0].textContent);
+        check_carts();
+        carts.forEach((cart,index) => {
+            if(cart.inno === index_no) carts.splice(index,1);
+        });
+        carts = localStorage.setItem('Carts',JSON.stringify(carts));
+
+        const homeProducts = document.querySelectorAll('.product');
+        homeProducts.forEach(pr => {
+            if(pr.children[0].textContent == index_no){
+                pr.children[3].children[1].textContent = 'Add Box';
+                pr.children[3].children[1].classList.remove('added_add_the_shopping_cart');
+            }
+        });
+
+        e.target.parentElement.parentElement.parentElement.remove();
+    }
 }
 
 function animationTheCartOfShopping_Add(count){
     numbers_of_products.textContent = count;
 }
 
-function addTheUI_scm(_name,_cost,_src){
+function addTheUI_scm(_inno,_name,_cost,_src){
+
+    const indexNoSCM = document.createElement('span');
+    indexNoSCM.className = 'scm_index';
+    indexNoSCM.textContent = _inno;
 
     const scm_product = document.createElement('div');
     scm_product.className = 'scm_product';
+
+    scm_product.appendChild(indexNoSCM);
 
     const scmp_left = document.createElement('div');
     scmp_left.className = 'scmp_left';
@@ -218,9 +297,16 @@ function addTheUI_scm(_name,_cost,_src){
     const minus = document.createElement('i');
     minus.className = 'fa-solid fa-minus minus';
 
+    check_carts();
+
     const numbersOfThisProduct = document.createElement('span');
     numbersOfThisProduct.className = 'numbersOfThisProduct';
-    numbersOfThisProduct.textContent = '0';
+
+    carts.forEach(cart => {
+        if(cart.inno === _inno){
+            numbersOfThisProduct.textContent = cart.quantity;
+        }
+    })
 
     const sum = document.createElement('i');
     sum.className = 'fa-solid fa-plus sum';
@@ -242,7 +328,8 @@ var createCart = function(){
     this.name,
     this.cost,
     this.src,
-    this.inno
+    this.inno,
+    this.quantity
 }
 
 function check_carts(){
