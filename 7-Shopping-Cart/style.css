@@ -86,6 +86,8 @@ html::-webkit-scrollbar-thumb{
     background-color: var(--secondary);
     color: white;
     width: 12rem;
+    position: relative;
+    overflow: hidden;
 }
 
 #Shopping-Cart-Btn:hover{
@@ -96,6 +98,25 @@ html::-webkit-scrollbar-thumb{
     margin: 0 0.4rem 0 0.6rem;
 }
 
+.animation_area{
+    position: absolute;
+    width: 12rem;
+    height: 100%;
+    transition: 0.5s;
+    pointer-events: none;
+    display: block;
+    opacity: 80%;
+}
+
+#minus_animation_area{
+    left: 12rem;
+    background:linear-gradient(to right,red,darkred) ;
+}
+
+#add_animation_area{
+    left: -12rem;
+    background: linear-gradient(to left ,  rgb(13, 247, 33),  rgb(32, 189, 45));
+}
 
 #home{
     padding: 2rem;
@@ -134,7 +155,7 @@ html::-webkit-scrollbar-thumb{
 .product{
     height: 25rem;
     display: grid;
-    grid-template-rows: 4rem 16rem 5rem;
+    grid-template-rows: 16% 64% 20%;
     border-radius: 0.4rem;
     transition: 0.3s;
     box-shadow: 0 0 0.4rem 0.1rem rgba(0, 0, 0, 0.2);
@@ -298,7 +319,7 @@ html::-webkit-scrollbar-thumb{
     width: 85%;
     padding: 1rem 0 1rem 1rem;
     display: grid;
-    grid-template-columns: 8rem 16rem;
+    grid-template-columns: 10rem auto;
     gap: 1.8rem;
 }
 
@@ -331,7 +352,8 @@ html::-webkit-scrollbar-thumb{
 .remove_scmp_btn{
     position: absolute;
     bottom: 0.1rem;
-    width: 50%;
+    min-width: 8rem;
+    width: 10rem;
     height: 2rem;
     border: 0;
     outline: 0;
@@ -454,4 +476,176 @@ html::-webkit-scrollbar-thumb{
 
 .scm_index{
     display: none;
+}
+
+@media(max-width : 950px){
+    #products{
+        grid-template-columns: repeat(3,20rem);
+    }
+}
+
+@media(max-width : 700px){
+    #products{
+        grid-template-columns: repeat(3,16rem);
+    }
+    .product{
+        height: 20rem;
+    }
+    .p_title{
+        font-size: 1.1rem;
+    }
+    .cost_div,
+    .add_the_shopping_cart{
+        font-size: 1rem;
+        height: 2.2rem;
+    }
+}
+
+@media(max-width : 585px){
+    #products{
+        grid-template-columns: repeat(3,12rem);
+    }
+    .product{
+        height: 15rem;
+    }
+    .p_title{
+        font-size: 0.8rem;
+    }
+    .cost_div,
+    .add_the_shopping_cart{
+        min-width: 4rem;
+        font-size: 0.7rem;
+        height: 1.6rem;
+    }
+    .add_the_shopping_cart{
+        width: 3rem;
+    }
+    .added_add_the_shopping_cart{
+        width: 4.5rem;
+    }
+    .nav_title{
+        display: none;
+    }
+    #Shopping-Cart-Btn{
+        display: flex !important;
+        width: 10rem;
+        height: 3rem;
+        font-size: 1.2rem;
+    }
+    .animation_area{
+        width: 10rem;
+    }
+    #logo{
+        font-size: 1.5rem;
+    }
+    .scm_product{
+        height: 8rem;
+    }
+    .scmp_left{
+        grid-template-columns: 8rem auto;
+    }
+    .scmp_infos{
+        font-size: 1.4rem;
+    }
+    .remove_scmp_btn{
+        min-width: 6rem;
+        height: 1.8rem;
+        width: 8rem;
+    }
+}
+
+@media(max-width : 525px){
+    .scm_product{
+        height: 8rem;
+    }
+    .scmp_left{
+        grid-template-columns: 8rem auto;
+    }
+    .scmp_infos{
+        font-size: 1.2rem;
+    }
+    .remove_scmp_btn{
+        min-width: 6rem;
+        height: 1.8rem;
+        width: 6rem;
+        font-size: 1rem;
+    }
+    .control_of_scmp_numbers > i,
+    .control_of_scmp_numbers > span{
+        height: 50%;
+    }
+    .control_of_scmp_numbers > i{
+        width: 2.5rem;
+    }
+    .numbersOfThisProduct{
+        width: 3.5rem;
+        font-size: 1.6rem;
+    }
+}
+
+@media(max-width : 465px){
+    #products{
+        grid-template-columns: repeat(2,12rem);
+    }
+    .nav_title{
+        display: none;
+    }
+    #Shopping-Cart-Btn{
+        display: flex !important;
+    }
+    #promo{
+        height: 8rem;
+        font-size: 1.8rem;
+    }
+    #pr_title{
+        font-size: 1.8rem;
+    }
+
+    .scm_product{
+        height: 7rem;
+    }
+    .scmp_left{
+        grid-template-columns: 7rem auto;
+    }
+    .scmp_infos{
+        font-size: 1rem;
+    }
+    .scmp_name{
+        overflow: hidden;
+        max-height: 1.5rem;
+    }
+    .remove_scmp_btn{
+        min-width: 5rem;
+        height: 1.5rem;
+        width: 5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    .control_of_scmp_numbers > i,
+    .control_of_scmp_numbers > span{
+        height: 45%;
+    }
+    .control_of_scmp_numbers > i{
+        width: 2rem;
+    }
+    .numbersOfThisProduct{
+        width: 3rem;
+        font-size: 1.2rem;
+    }
+    #shopping_cart_menu > header{
+        font-size: 2.8rem;
+    }
+    #closeTheShoppingCartBtn{
+        right: 2rem;
+        top: 3rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        font-size: 1.5rem;
+    }
+    #total{
+        font-size: 1.4rem;
+        height: 3.5rem;
+        justify-content: center;
+        bottom: 4rem;
+    }
 }

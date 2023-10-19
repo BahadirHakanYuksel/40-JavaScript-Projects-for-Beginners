@@ -170,7 +170,7 @@ function clickActions(e){
         addBtn.textContent = 'Take Back';
         addBtn.classList.add('added_add_the_shopping_cart');
         counter++;
-        animationTheCartOfShopping_Add(counter);
+        animationTheCartOfShopping_Add(counter,0);
     }
     else if(e.target.className === 'add_the_shopping_cart added_add_the_shopping_cart'){
         const addBtn = e.target;
@@ -186,7 +186,7 @@ function clickActions(e){
         addBtn.classList.remove('added_add_the_shopping_cart');
 
         if(counter != 0) counter--;
-        animationTheCartOfShopping_Add(counter);
+        animationTheCartOfShopping_Add(counter,1);
     }
     else if(e.target.className === 'fa-solid fa-minus minus' || e.target.className === 'fa-solid fa-plus sum'){
         let scm_counter = Number(e.target.parentElement.children[1].textContent);
@@ -237,8 +237,35 @@ function clickActions(e){
     }
 }
 
-function animationTheCartOfShopping_Add(count){
+function animationTheCartOfShopping_Add(count,controlValue){
     numbers_of_products.textContent = count;
+
+    if(controlValue === 0){
+        const add_animation_area = document.getElementById('add_animation_area');
+        add_animation_area.style.display = ''
+        add_animation_area.style.left = '';
+
+        setTimeout(() => add_animation_area.style.left = '12rem', 1);
+        setTimeout(() => {
+            add_animation_area.style.transition = '0';
+            add_animation_area.style.display = 'none';
+            add_animation_area.style.left = '';
+        },501);
+        setTimeout(() => add_animation_area.style.transition = '', 502);
+    }if(controlValue === 1){
+        const minus_animation_area = document.getElementById('minus_animation_area');
+        
+        minus_animation_area.style.left = '';
+        minus_animation_area.style.display = ''
+
+        setTimeout(() => minus_animation_area.style.left = '-12rem', 1);
+        setTimeout(() => {
+            minus_animation_area.style.transition = '0';
+            minus_animation_area.style.display = 'none';
+            minus_animation_area.style.left = '';
+        },501);
+        setTimeout(() => minus_animation_area.style.transition = '', 502);
+    }
 }
 
 function addTheUI_scm(_inno,_name,_cost,_src){
