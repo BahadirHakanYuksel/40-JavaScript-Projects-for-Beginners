@@ -1,15 +1,57 @@
 [
     {
-        "name" : "Computer",
-        "cost" : 5000,
-        "src" : "imgs/1.jpg",
+        "name" : "Mac M1 128 GB",
+        "cost" : 25000,
+        "src" : "imgs/2.jpg",
         "index" : 0
     },
     {
-        "name" : "Cmp 2",
-        "cost" : 10000,
-        "src" : "imgs/2.png",
+        "name" : "XIOAMI REDMI NOTE 12",
+        "cost" : 9000,
+        "src" : "imgs/6.jpg",
         "index" : 1
+    },
+    {
+        "name" : "MSI BRAVO İ7-12650H 4060",
+        "cost" : 38999,
+        "src" : "imgs/5.jpg",
+        "index" : 2
+    },
+    {
+        "name" : "MONSTER TULPAR 4060 İ5-13500H",
+        "cost" : 32499,
+        "src" : "imgs/4.png",
+        "index" : 3
+    },
+    {
+        "name" : "HP VICTUS 16GB 4GB 3050Tİ",
+        "cost" : 32487,
+        "src" : "imgs/3.jpg",
+        "index" : 4
+    },
+    {
+        "name" : "SMART CLOCK QXR",
+        "cost" : 4500,
+        "src" : "imgs/10.jpg",
+        "index" : 5
+    },
+    {
+        "name" : "XIOAMI REDMI NOTE 12 PRO",
+        "cost" : 11000,
+        "src" : "imgs/8.jpg",
+        "index" : 6
+    },
+    {
+        "name" : "SMART CLOCK PRO QXR",
+        "cost" : 10000,
+        "src" : "imgs/9.jpg",
+        "index" : 7
+    },
+    {
+        "name" : "IPHONE 11",
+        "cost" : 25000,
+        "src" : "imgs/7.jpg",
+        "index" : 8
     }
     
 ]

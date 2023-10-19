@@ -6,6 +6,7 @@ const numbers_of_products = document.getElementById('numbers_of_products');
 const scm_products = document.getElementById('scm_products');
 const totalCost = document.getElementById('totalCost');
 const total = document.getElementById('total');
+const html = document.querySelector('html');
 
 let carts = [];
 let counter = 0;
@@ -21,6 +22,7 @@ function runEvenets(){
 }
 
 function openTheShoppingCartMenu(){
+    html.style.overflowY = 'hidden';
     shopping_cart_menu.classList.add('scm_active');
     check_carts();
     carts.forEach(cart => {
@@ -35,10 +37,12 @@ function openTheShoppingCartMenu(){
             sumOf_totalCost += Number(pr.children[1].children[1].children[1].children[0].textContent) * Number(pr.children[2].children[0].children[1].textContent);
             totalCost.textContent = sumOf_totalCost;
         });
+        scrollControl();
     }else total.style.display = 'none';
 }
 
 function closeTheShoppingCartMenu(){
+    html.style.overflowY = '';
     shopping_cart_menu.classList.remove('scm_active');
     const scm_product = document.querySelectorAll('.scm_product');
 
@@ -117,7 +121,7 @@ function addTheUIHome(_inno,_name,_cost,_src){
         carts.forEach(cart => {
             if(cart.inno === _inno){
                 add_the_shopping_cart.classList.add("added_add_the_shopping_cart");
-                add_the_shopping_cart.textContent = 'Back Up';
+                add_the_shopping_cart.textContent = 'Take Back';
             }
         })
     }
@@ -140,7 +144,7 @@ function addTheUIHome(_inno,_name,_cost,_src){
     p_infos.appendChild(add_the_shopping_cart);
     product.appendChild(p_infos);
 
-    products.insertBefore(product,products.children[0]);
+    products.appendChild(product);
 
 }
 
@@ -163,7 +167,7 @@ function clickActions(e){
         carts.push(newCart);
         carts = localStorage.setItem('Carts',JSON.stringify(carts));
 
-        addBtn.textContent = 'Back Up';
+        addBtn.textContent = 'Take Back';
         addBtn.classList.add('added_add_the_shopping_cart');
         counter++;
         animationTheCartOfShopping_Add(counter);
@@ -228,6 +232,8 @@ function clickActions(e){
         });
 
         e.target.parentElement.parentElement.parentElement.remove();
+
+        scrollControl();
     }
 }
 
@@ -337,5 +343,17 @@ function check_carts(){
         carts = []
     }else{
         carts = JSON.parse(localStorage.getItem("Carts"))
+    }
+}
+
+function scrollControl(){
+    const scmProducts = document.querySelectorAll(".scm_product");
+    const mainScmp = document.getElementById('scm_products');
+    if(scmProducts.length > 4){
+        mainScmp.style.height = '43rem';
+        mainScmp.style.overflowY = 'scroll';
+    }else{
+        mainScmp.style.height = '';
+        mainScmp.style.overflowY = '';
     }
 }
