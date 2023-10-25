@@ -114,7 +114,7 @@ function addTheUIHome(_inno,_name,_cost,_src){
 
     const add_the_shopping_cart = document.createElement('button');
     add_the_shopping_cart.className = 'add_the_shopping_cart';
-    add_the_shopping_cart.textContent = 'Add Box';
+    add_the_shopping_cart.textContent = 'Add Cart';
     check_carts();
 
     if(carts.length > 0){
@@ -127,7 +127,7 @@ function addTheUIHome(_inno,_name,_cost,_src){
     }
     else{
         add_the_shopping_cart.className = 'add_the_shopping_cart';
-        add_the_shopping_cart.textContent = 'Add Box';
+        add_the_shopping_cart.textContent = 'Add Cart';
     }
     
     const inno_span = document.createElement('span');
@@ -182,7 +182,7 @@ function clickActions(e){
             }
         })
         carts = localStorage.setItem('Carts',JSON.stringify(carts));
-        addBtn.textContent = 'Add Box';
+        addBtn.textContent = 'Add Cart';
         addBtn.classList.remove('added_add_the_shopping_cart');
 
         if(counter != 0) counter--;
@@ -226,7 +226,7 @@ function clickActions(e){
         const homeProducts = document.querySelectorAll('.product');
         homeProducts.forEach(pr => {
             if(pr.children[0].textContent == index_no){
-                pr.children[3].children[1].textContent = 'Add Box';
+                pr.children[3].children[1].textContent = 'Add Cart';
                 pr.children[3].children[1].classList.remove('added_add_the_shopping_cart');
             }
         });
