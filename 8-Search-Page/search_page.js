@@ -100,13 +100,14 @@ function UI(url,name,cost,description){
 }
 
 function search(){
+    let counter = 0;
     document.querySelectorAll('.product').forEach(p => {
         if(p.children[1].children[0].children[0].textContent.toLowerCase().includes(search_input.value.toLowerCase().trim())){
             p.style.display = '';
             not_found_message.style.display = '';
         }else{
             p.style.display = 'none';
-            not_found_message.style.display = 'flex';
+            if(counter === 0) not_found_message.style.display = 'flex';
         }
     });
 }
