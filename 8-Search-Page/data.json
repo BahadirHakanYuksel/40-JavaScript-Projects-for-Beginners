@@ -1,0 +1,71 @@
+[
+  {
+    "name": "breakfast",
+    "products": [
+      {
+        "name": "Buttermilk Pancakes",
+        "cost": 15.99,
+        "description": "I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed.",
+        "img": "images/b1.jpeg"
+      },
+      {
+        "name": "Country Delight",
+        "cost": 20.99,
+        "description": "Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut.",
+        "img": "images/b2.jpeg"
+      },
+      {
+        "name": "Bacon Overflow",
+        "cost": 8.99,
+        "description": "carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird.",
+        "img": "images/b3.jpeg"
+      }
+    ]
+  },
+  {
+    "name": "lunch",
+    "products": [
+      {
+        "name": "Diner Double",
+        "cost": 13.99,
+        "description": "vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing.",
+        "img": "images/l1.jpeg"
+      },
+      {
+        "name": "Egg Attack",
+        "cost": 22.99,
+        "description": "franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up.",
+        "img": "images/l2.jpeg"
+      },
+      {
+        "name": "American Classic",
+        "cost": 12.99,
+        "description": "on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut.",
+        "img": "images/l3.jpeg"
+      }
+    ]
+  },
+  {
+    "name": "shake",
+    "products": [
+      {
+        "name": "Godzilla Milkshake",
+        "cost": 6.99,
+        "description": "ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.",
+        "img": "images/s1.jpeg"
+      },
+      {
+        "name": "Oreo Dream",
+        "cost": 18.99,
+        "description": "Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday.",
+        "img": "images/s2.jpeg"
+      },
+      {
+        "name": "Quarantine Buddy",
+        "cost": 16.99,
+        "description": "skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.",
+        "img": "images/s3.jpeg"
+      }
+    ]
+  }
+]
