@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background : linear-gradient(45deg,#1f252c,var(--color4));
+    position: relative;
+}
+:root{
+    --color1 : #202836;
+    --color2 : #283445 ;
+    --color3 : #242629;
+    --color4 : #14171b;
+}
+
+.snakeGame{
+    top: 4vmin;
+    color: grey;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+.container{
+    background-color: var(--color1);
+    width: 72vmin;
+    height: 77vmin;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+#details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    color: rgb(221, 221, 221);
+}
+
+#game_board{
+    background-color: var(--color2);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: repeat(30,1fr)/repeat(30,1fr);
+}
+
+.food{
+    background-color: rgb(209, 18, 18);
+
+}
+
+.snake{
+    background-color: rgb(24, 200, 231);
+}
+
+#high_score{
+    color: rgb(21, 214, 117);
+    font-weight: 600;
+}
+
+#controlButtons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: var(--color1);
+    gap: 0.2rem;
+    height: 3.8rem;
+}
+
+#controlButtons > i{
+    background-color: white;
+    color: var(--color1);
+    cursor: pointer;
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+#gameOverScreen{
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:  #1c222c85;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.gameOverScreen_active{
+    pointer-events: all !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#gscreen{
+    width: 72vmin;
+    height: 78vmin;
+    background-color: var(--color2);
+    color: white;
+    overflow: hidden;
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+#gscreen > header{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+#scores_of_gscreen{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.4rem;
+    height: 5rem;
+    margin-bottom: 3rem;
+}
+
+#gs_score{
+    background-color: rgb(15, 107, 182);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+#gs_hscore{
+    background-color: rgb(15, 182, 79);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+#play_again_btn{
+    width: 30vmin;
+    height: 30vmin;
+    border-radius: 50%;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background: linear-gradient(45deg,var(--color4),var(--color2));
+    color: white;
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    box-shadow: -0.1rem 0.1rem 0.2rem rgb(32, 117, 173);
+}
+
+#play_again_btn:hover{
+    background: linear-gradient(45deg,var(--color2),var(--color4));
+    box-shadow: -0.1rem 0.1rem 0.2rem rgb(25, 143, 223);
+}
+
+#gameName{
+    position: absolute;
+    font-size: 1.2rem;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: grey;
+    font-weight: 600;
+}

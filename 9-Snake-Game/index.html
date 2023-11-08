@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="game.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <div id="details">
+            <span id="score">Score : 0</span>
+            <span id="high_score">High Score : 0</span>
+        </div>
+        <div id="game_board"></div>
+        <div id="controlButtons">
+            <i data-key="ArrowLeft" class="fa-solid fa-angle-left"></i>
+            <i data-key="ArrowUp" class="fa-solid fa-angle-up"></i>
+            <i data-key="ArrowRight" class="fa-solid fa-angle-right"></i>
+            <i data-key="ArrowDown" class="fa-solid fa-angle-down"></i>
+        </div>
+    </div>
+
+    <div id="gameOverScreen">
+        <div id="gscreen">
+            <header>Game Over !</header>
+            <div id="scores_of_gscreen">
+                <span id="gs_score">Your Score : 0</span>
+                <span id="gs_hscore">Last Hight Score : 0</span>
+            </div>
+            <button id="play_again_btn">Play Again</button>
+            <span id="gameName">Snake Game</span>
+        </div>
+    </div>
+
+    <span class="snakeGame">Snake Game</span>
+    
+</body>
+</html>
